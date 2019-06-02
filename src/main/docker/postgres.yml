@@ -1,0 +1,10 @@
+version: '2'
+services:
+  purchaseservice-postgresql:
+    image: postgres:latest
+    environment:
+    - POSTGRES_DB=purchase
+    - POSTGRES_USER=purchaseuser
+    - POSTGRES_PASSWORD=docker
+    ports:
+    - 5440:5432
