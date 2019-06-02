@@ -7,9 +7,8 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
-@EqualsAndHashCode(of = {"email", "firstName", "lastName"}, callSuper = true)
+@EqualsAndHashCode(of = {"inventory, user"}, callSuper = true)
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,12 +22,13 @@ public class Purchase extends AbstractAuditEntity {
     @SequenceGenerator(allocationSize = 1, sequenceName = "seq_purchase", name = "seq_purchase")
     private Long id;
 
+    @Column(nullable = false, updatable = false)
     private int quantity;
 
-    @Column(name = "inventory_id")
+    @Column(name = "inventory_id", nullable = false, updatable = false)
     private long inventory;
 
-    @Column(name = "user_id")
+    @Column(name = "user_id", nullable = false, updatable = false)
     private long user;
 
     public static Purchase create(int quantity, long inventory, long user) {

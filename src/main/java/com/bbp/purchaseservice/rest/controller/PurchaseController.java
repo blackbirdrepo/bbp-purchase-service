@@ -11,11 +11,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import static com.bbp.purchaseservice.config.Constants.REST_PATH;
+import static com.bbp.purchaseservice.config.Constants.PURCHASE_PATH;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(REST_PATH + "/purchases/")
+@RequestMapping(PURCHASE_PATH + "/purchases/")
 public class PurchaseController {
 
     private final PurchaseFacade facade;

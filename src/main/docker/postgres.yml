@@ -1,3 +1,4 @@
+# Not used actual docker db configuration in pom
 version: '2'
 services:
   purchaseservice-postgresql:
