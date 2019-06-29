@@ -21,8 +21,31 @@ spring:
     driver-class-name: 'org.postgresql.Driver'
 server:
   port: 8040
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: Purchase Service Application. Handle purchase related logic
+    version: 1.0.0
+
+management:
+  endpoints.web.exposure.include: '*'
+  endpoint.health.show-details: always
+  security.enabled: false
+endpoints.health.sensitive: false
+
 eureka:
   client:
     registryFetchIntervalInSeconds: 10
     serviceUrl:
       defaultZone: http://localhost:8061/eureka/
+
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 3000
+        readTimeout: 3000
+        loggerLevel: basic
